@@ -33,7 +33,7 @@ console.log(pokemon);
       }
   
       // Filter by type
-      if (selectedType && poke.type !== selectedType) {
+      if (selectedType && !poke.type.includes (selectedType)) {
         shouldShow = false;
       }
   
@@ -103,7 +103,7 @@ return (
         <p key={poke.num}>
           <b>{poke.name}</b> (#{poke.num}) - {poke.type.join(', ')} - Weaknesses: {poke.weaknesses.join(', ')}
         </p>
-        <img src={poke.img.toString()} alt={poke.name}/>
+        <img src={poke.img.toString()} alt={poke.name} className="pokemon-image pulsing-poke"/>
         </>
       ))}
     </div>

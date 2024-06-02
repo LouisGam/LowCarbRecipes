@@ -34,9 +34,36 @@
 }
 
 .card {
-  padding: 2em;
+  padding: 3rem;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+.App {
+  padding: 9rem;
+  background-color: darkorange;
+}
+
+
+.pulsing-pokemon {
+  animation: pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+
+.pokemon-image {
+  animation: pulse 1.5s infinite alternate;
 }
