@@ -109,9 +109,21 @@ return (
     </div>
     )
     :
+    pokemon ?
     (
         <p>
-        API is currently down try again later
+          <h1>
+            Sorry!
+          </h1>
+        Could not find that pokemon, check your spelling
+        </p>
+      ) :
+      (
+        <p>
+          <h1>
+            500
+          </h1>
+          API is currently down try again later
         </p>
       )}
   </div>
