@@ -1,26 +1,41 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import Home from "./pages/Home";
+import { RecipePage }  from "./pages/RecipePage";
+import Footer from "./components/Footer";
+import SingleRecipe from './pages/SingleRecipe';
+import AboutUs from './pages/AboutUs';
+import Header from './components/Header';
+import { Route, Routes, Link } from 'react-router-dom';
 
 
+function App() {
 
-
-function Pokedex() {
+      const [recipes, setRecipes] = useState([]);
       const [pokemon, setPokemon] = useState(false); // Stores all Pokemon data
       const [filteredPokemon, setFilteredPokemon] = useState([]); // Stores currently displayed Pokemon
       const [searchTerm, setSearchTerm] = useState(''); // Stores search term
       const [selectedType, setSelectedType] = useState(''); // Stores selected type filter
       const [selectedWeakness, setSelectedWeakness] = useState(''); // Stores selected weakness filter
       //Fetches Pokemon data on component mount
+
+
       useEffect(() => {
-   fetch(
-        "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json")
-        .then((response) => response.json()) 
-        .then((data) => {
-          let { pokemon } = data;
-          setPokemon(pokemon);
+   fetch('https://keto-diet.p.rapidapi.com/?protein_in_grams__lt=15&protein_in_grams__gt=5',
+   {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-key': 'f270fc3fc9msh587ccd344441474p14b207jsn6491ad15bbaa',
+      'x-rapidapi-host': 'keto-diet.p.rapidapi.com'
+    }
+  }
+ )
+.then((response) => response.json()) 
+.then((data) => {
+          setRecipes(data);
         })
       }, []);
-console.log(pokemon);
+console.log(recipes);
  // Updates displayed Pokemon based on filters and search term
  useEffect(() => {
   if (pokemon.length > 0){
@@ -63,71 +78,16 @@ const handleWeaknessChange = (event) => {
 
 return (
   <div className="App">
-    <h1>Pokedex</h1>
-    <div>
-      <input
-        type="text"
-        placeholder="Search Pokemon"
-        value={searchTerm}
-        onChange={handleSearchChange}
-      />
-      <select value={selectedType} onChange={handleTypeChange}>
-        <option value="">
-          All Types
-        </option>
-        {pokemon.length && pokemon
-         .reduce((acc, poke) => [...acc, ...poke.type], [])
-         .filter((type, index, arr) => arr.indexOf(type) === index)
-         .map((type) => (
-          <option key={type} value={type}>
-            {type}
-          </option>
-        ))}
-      </select>
-      <select value={selectedWeakness} onChange={handleWeaknessChange}>
-        <option value="">All Weaknesses</option>
-        {pokemon.length && pokemon
-          .reduce((acc, poke) => [...acc, ...poke.weaknesses], [])
-          .filter((weakness, index, arr) => arr.indexOf(weakness) === index) // Get unique weaknesses
-          .map((weakness) => (
-            <option key={weakness} value={weakness}>
-              {weakness}
-            </option>
-          ))}
-      </select>
-    </div>
-    {filteredPokemon.length > 0 ? (
-      <div>
-      {filteredPokemon.map((poke) => (
-        <>
-        <p key={poke.num}>
-          <b>{poke.name}</b> (#{poke.num}) - {poke.type.join(', ')} - Weaknesses: {poke.weaknesses.join(', ')}
-        </p>
-        <img src={poke.img.toString()} alt={poke.name} className="pokemon-image pulsing-poke"/>
-        </>
-      ))}
-    </div>
-    )
-    :
-    pokemon ?
-    (
-        <p>
-          <h1>
-            Sorry!
-          </h1>
-        Could not find that pokemon, check your spelling
-        </p>
-      ) :
-      (
-        <p>
-          <h1>
-            500
-          </h1>
-          API is currently down try again later
-        </p>
-      )}
+    <Header />
+    <Routes>
+    <Route path="/about" element={<AboutUs />} />
+    <Route path="/" element={<Home />} />
+    <Route path="/recipes" element={<RecipePage recipes={recipes} />} />
+    <Route path="/recipes/recipe/:id" element={<SingleRecipe recipes={recipes} />} />
+    </Routes>
+    <Footer />
   </div>
 );
 };
 
-export default Pokedex;
+export default App;
