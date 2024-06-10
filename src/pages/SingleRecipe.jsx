@@ -8,6 +8,20 @@ function SingleRecipe({ recipes }) {
     return <p>Recipe not found!</p>;
   }
 
+  const {
+    name,
+    image,
+    directions,
+    ingredients,
+    measurements,
+    calories,
+    fatInGrams, // Use camelCase for consistency
+    carbohydratesInGrams, // Use camelCase for consistency
+    proteinInGrams,
+    servings, // Assuming servings data is available
+    prepTimeInMinutes, // Assuming prepTimeInMinutes data is available
+  } = recipe; // Destructure recipe data for better readability
+
   return (
     <div>
     <h1>{recipe.recipe}</h1>
@@ -168,6 +182,22 @@ function SingleRecipe({ recipes }) {
         Step 10: {recipe.measurement_step_10}
         </p>) : ''}
       </p>
+
+      <h4>Nutrition Facts:</h4>
+      <ul>
+        <li>Calories: {calories}</li>
+        <li>Fat: {fatInGrams} grams</li>
+        <li>Carbohydrates: {carbohydratesInGrams} grams</li>
+        <li>Protein: {proteinInGrams} grams</li>
+      </ul>
+
+      {prepTimeInMinutes && ( // Only display prep time if data exists
+        <p>Prep Time: {prepTimeInMinutes} minutes</p>
+      )}
+
+      {servings && ( // Only display servings if data exists
+        <p>Servings: {servings}</p>
+      )}
 
     </div>
   );
