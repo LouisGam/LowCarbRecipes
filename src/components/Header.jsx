@@ -6,8 +6,8 @@ export default function Header() {
     <div>
         <Link to={"/"}>Home</Link>
         <Link to={"/recipes"}>Recipes</Link>
-        <link to={"/ingredient"}>Ingredient</link>
-        <link to={"/measurement"}>Measurement</link>
+        <Link to={"/ingredient"}>Ingredient</Link>
+        <Link to={"/measurement"}>Measurement</Link>
         <Link to={"/about"}>About Us</Link>
     </div>
   )
