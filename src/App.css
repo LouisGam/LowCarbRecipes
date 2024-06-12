@@ -19,6 +19,35 @@
   background-color: darkorange;
 }
 
+.App {
+  color: purple;
+}
 
+.Headers {
+  font-size: 1.25em;
+  line-height: 1.1;
+}
 
+.Headers {
+  display: grid;
+  justify-content: space-evenly;
+}
 
+h4 {
+  font-size: x-large;
+}
+
+.flex-start-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.h2left {
+  text-align: left;
+} 
+
+.Headerlinks a {
+  padding:0px 25px;
+  
+}

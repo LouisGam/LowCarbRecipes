@@ -23,12 +23,12 @@ function SingleRecipe({ recipes }) {
   } = recipe; // Destructure recipe data for better readability
 
   return (
-    <div>
+    <div className="Headers">
     <h1>{recipe.recipe}</h1>
       <img src={recipe.image} alt={recipe.recipe} />
 
-      <h2>Ingredients</h2>
-      <p>
+      <h2 className="h2left">Ingredients</h2>
+      <div className="flex-start-column">
         {ingredientsArray.map((ingredient, index) => {
           if(ingredient){
                 return (
@@ -40,9 +40,9 @@ function SingleRecipe({ recipes }) {
                 return;
             }
         })}
-      </p>
-      <h2>Instructions</h2>
-      <p>
+      </div>
+      <h2 className="h2left">Instructions</h2>
+      <div className="flex-start-column">
         {instructionsArray.map((instruction, index) => {
             if(instruction){
                 return (
@@ -54,10 +54,10 @@ function SingleRecipe({ recipes }) {
                 return;
             }
         })}
-      </p>
+      </div>
 
-      <h4>Nutrition Facts:</h4>
-      <ul>
+      <h2 className="h2left">Nutrition Facts:</h2>
+      <ul className="flex-start-column">
         <li>Calories: {calories}</li>
         <li>Fat: {fat_in_grams} grams</li>
         <li>Carbohydrates: {carbohydrates_in_grams} grams</li>

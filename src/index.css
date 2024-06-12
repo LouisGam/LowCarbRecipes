@@ -31,9 +31,10 @@ body {
 }
 
 h1 {
-  font-size: 3.1em;
+  font-size: 3.em;
   line-height: 1.1;
 }
+
 
 button {
   border-radius: 8px;
