@@ -6,9 +6,7 @@ export default function Header() {
     <div className="Headerlinks">
         <Link to={"/"}>Home</Link>
         <Link to={"/recipes"}>Recipes</Link>
-        <Link to={"/ingredient"}>Ingredient</Link>
-        <Link to={"/measurement"}>Measurement</Link>
-        <Link to={"/about"}>About Us</Link>
+        <Link to={"/about"}>About Me</Link>
     </div>
   )
 }
