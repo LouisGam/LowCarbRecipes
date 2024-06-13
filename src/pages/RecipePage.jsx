@@ -18,9 +18,8 @@ export function RecipePage({ recipes }) {
   };
 
   // Filter recipes based on protein and carb values
-  const filteredRecipes = recipes.filter((recipe) => { console.log(typeof recipe.protein_in_grams)
-    const proteinMatch =
-      proteinFilter === "" ||
+  const filteredRecipes = recipes.filter((recipe) => {
+    const proteinMatch = proteinFilter === "" ||
       recipe.protein_in_grams >= parseInt(proteinFilter);
     const carbMatch =
       carbFilter === "" || recipe.carbohydrates_in_grams <= parseInt(carbFilter);
@@ -30,6 +29,8 @@ export function RecipePage({ recipes }) {
   return (
     <div>
       <h1>Recipes</h1>
+    <div className="filters">
+      
       <div>
         <label htmlFor="proteinFilter">Filter by Protein (grams):</label>
         <input
@@ -47,12 +48,23 @@ export function RecipePage({ recipes }) {
           value={carbFilter}
           onChange={handleCarbChange}
         />
+        </div>
       </div>
+      <div>
       <ul>
-        {filteredRecipes.map((recipe) => (
+        {filteredRecipes.length > 0 ? 
+      (
+          filteredRecipes.map((recipe) => (
           <RecipeCard recipe={recipe} key={recipe.id} />
-        ))}
+        ))
+      )
+      :
+      (
+        <p>No Recipes Found With This Protein Content Level</p>
+      )}
       </ul>
+      </div>
+    
     </div>
   );
 }

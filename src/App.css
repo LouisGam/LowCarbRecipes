@@ -16,11 +16,13 @@
 .App {
   border: solid rgb(131, 132, 187) 2rem;
   padding: 9rem;
+  width: 100vw;
+  height: 100%;
   background-color: darkorange;
 }
 
 .App {
-  color: purple;
+  color: rgb(0, 0, 0);
 }
 
 .Headers {
@@ -49,5 +51,52 @@ h4 {
 
 .Headerlinks a {
   padding:0px 25px;
+  font-size: 1.25rem;
   
+}
+
+.filters {
+  display: flex; /* Make the filter elements display horizontally */
+  justify-content: center; /* Distribute elements evenly within the container */
+  margin-bottom: 1rem; /* Add some space below the filters */
+  gap: 150px;
+  margin: 40px 0px;
+}
+
+.filters label {
+  display: block; /* Make labels appear on separate lines */
+  margin-bottom: 0.5rem; /* Add some space below labels */
+}
+
+.filters input {
+  width: 150px; /* Set a fixed width for the input boxes */
+  padding: 0.5rem; /* Add padding for better user experience */
+  border: 3px solid #0dce9e; /* Add a thin border */
+  border-radius: 3px; /* Add rounded corners for a smoother look */
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+
+#authorImage {
+  height: 500px;
+}
+
+.recipe-image {
+  width: 500px;
+}
+
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.recipe-card a {
+  font-size: 1.25rem;
 }

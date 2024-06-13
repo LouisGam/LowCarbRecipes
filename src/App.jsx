@@ -30,7 +30,7 @@ function App() {
         })
       }, []);
 console.log(recipes);
- // Updates displayed Pokemon based on filters and search term
+ // Updates displayed Recipe based on filters and search term
 
 
 return (
