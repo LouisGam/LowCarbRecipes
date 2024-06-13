@@ -3,7 +3,7 @@ import React from 'react'
 export default function Home() {
   return (
     <div>
-        <h1>Low Carb High Protein Recipes</h1>
+        <h1>Low Carb Protein Science</h1>
         <h2>Dr Ben Bikman PHD, Prioritize Protein</h2>
     <iframe title="Dr. Bikman prioritize protein" width="540" height="310" src="https://youtube.com/embed/5v1kiBWurnI?si=HC6lOJxgIMI6_rCA" controls/> 
 
