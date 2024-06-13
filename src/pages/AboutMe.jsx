@@ -5,7 +5,7 @@ export default function AboutMe() {
   return (
 <div>
   <h1>About Me</h1>
-  <div className="flex">
+  <div className="about-me">
   <div>
     <p>Hi there! I'm Louis Gambardella.
     For the past 20 years, I've been a Licensed Vocational Nurse (LVN) working in Southern California. While I enjoyed that career path, I recently decided to make a big change and pursue a new passion: front-end web development.
