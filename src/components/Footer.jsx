@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div>
       <h1>Additional Resources</h1>
-      <h2>Dr.Rhonda Patrick, PHD on Ketogenic diet</h2>
+      <h2>Dr.Rhonda Patrick, PHD talks about the ketogenic diet</h2>
       <iframe width="945" height="532" src="https://www.youtube.com/embed/uAt2M_MeNIU" title="Dr Rhonda Patrick on Ketogenic diet" controls/>
 
       <h2>Dr. Peter Attia, MD Managing Blood Glucose</h2>
